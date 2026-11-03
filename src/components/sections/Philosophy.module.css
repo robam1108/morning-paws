@@ -1,0 +1,151 @@
+.section {
+  background: var(--white);
+  padding: var(--section-y) 0;
+}
+
+.folioWrap {
+  max-width: var(--page-max);
+  margin: 0 auto clamp(3rem, 6vw, 5.5rem);
+  padding: 0 var(--gutter);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 46fr) minmax(0, 8fr) minmax(0, 46fr);
+  align-items: start;
+  /* 왼쪽 사진은 화면 끝까지, 오른쪽 텍스트는 페이지 폭 안쪽에 맞춘다 */
+  padding-right: max(var(--gutter), calc((100vw - var(--page-max)) / 2 + var(--gutter)));
+}
+
+.media {
+  grid-column: 1 / 2;
+  position: relative;
+  padding-bottom: clamp(4rem, 8vw, 8rem);
+}
+
+.mainFrame {
+  width: 100%;
+}
+
+.inset {
+  position: absolute;
+  right: -28%;
+  bottom: 0;
+  width: 52%;
+  padding: 10px;
+  background: var(--white);
+}
+
+.insetCaption {
+  margin-top: 0.6rem;
+  color: var(--text-faint);
+}
+
+.text {
+  grid-column: 3 / 4;
+  padding-top: clamp(1rem, 4vw, 4rem);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 0.98;
+}
+
+.title em {
+  color: var(--olive);
+}
+
+.intro {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  max-width: 30rem;
+  margin-left: clamp(0rem, 6vw, 5.5rem);
+}
+
+.body {
+  margin-top: 1.25rem;
+  color: var(--text-soft);
+}
+
+.pace {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  margin-left: clamp(0rem, 6vw, 5.5rem);
+  max-width: 30rem;
+}
+
+.pace dt {
+  padding-bottom: 0.85rem;
+  color: var(--terracotta-ink);
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.paceRow {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.paceNo {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: var(--olive);
+}
+
+.paceTitle {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.paceBody {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.875rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+
+  .text {
+    grid-column: 2 / 3;
+  }
+
+  .inset {
+    right: -4%;
+    width: 54%;
+  }
+
+  .intro,
+  .pace {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    display: block;
+    padding: 0;
+  }
+
+  .media {
+    margin-right: 18%;
+    padding-bottom: 5.5rem;
+  }
+
+  .inset {
+    right: -22%;
+    width: 58%;
+    padding: 6px;
+  }
+
+  .text {
+    padding: 2.5rem var(--gutter) 0;
+  }
+}

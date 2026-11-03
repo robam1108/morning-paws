@@ -1,0 +1,368 @@
+.section {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding: var(--section-y) 0;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 1fr) minmax(0, 6fr);
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.aside {
+  grid-column: 1;
+}
+
+.title {
+  font-size: clamp(3rem, 1.6rem + 4.4vw, 5.5rem);
+  line-height: 0.92;
+}
+
+.title em {
+  color: var(--sand);
+}
+
+.lead {
+  margin-top: 2rem;
+  max-width: 26rem;
+  color: var(--on-dark-soft);
+}
+
+.steps {
+  margin-top: 2rem;
+  max-width: 26rem;
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+.steps li {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--rule-on-dark);
+  font-size: 0.9375rem;
+}
+
+.steps :global(.label) {
+  color: var(--sand);
+}
+
+.asidePhoto {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  width: 78%;
+}
+
+.formCol {
+  grid-column: 3;
+}
+
+/* ---- 폼: 박스 대신 밑줄만 ------------------------------------------------- */
+.form {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.formNote {
+  font-size: 0.8125rem;
+  color: var(--on-dark-soft);
+}
+
+.formNote strong {
+  color: var(--on-dark);
+  font-weight: 600;
+}
+
+.formNote span {
+  color: var(--sand);
+}
+
+.group {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.group legend {
+  grid-column: 1 / -1;
+  width: 100%;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule-on-dark);
+  color: var(--sand);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.fieldLabel {
+  font-size: 0.8125rem;
+  color: var(--on-dark-soft);
+  margin-bottom: 0.35rem;
+}
+
+.req {
+  color: var(--sand);
+  margin-left: 0.2rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.6rem 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(243, 237, 227, 0.45);
+  border-radius: 0;
+  color: var(--on-dark);
+  font-size: 1rem; /* iOS 확대 방지 */
+  transition: border-color var(--t-fast) var(--ease);
+  color-scheme: dark;
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 112px;
+  line-height: 1.7;
+}
+
+.field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--sand) 50%),
+    linear-gradient(135deg, var(--sand) 50%, transparent 50%);
+  background-position:
+    calc(100% - 12px) 55%,
+    calc(100% - 7px) 55%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 1.5rem;
+}
+
+.field select option {
+  background: var(--ink);
+  color: var(--on-dark);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(243, 237, 227, 0.4);
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-bottom-color: var(--on-dark);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom: 1px solid var(--sand);
+  box-shadow: 0 1px 0 0 var(--sand);
+}
+
+.hasError input,
+.hasError select,
+.hasError textarea {
+  border-bottom-color: #e6a07a;
+}
+
+.hint {
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+.error {
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  color: #f0b493; /* ink 위 7:1 이상 */
+}
+
+.errorSummary {
+  padding: 0.85rem 1rem;
+  border-left: 2px solid #f0b493;
+  background: rgba(240, 180, 147, 0.08);
+  font-size: 0.875rem;
+  color: #f6d2be;
+}
+
+.errorSummary:focus {
+  outline: none;
+}
+
+.trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.consent {
+  padding-top: 0.25rem;
+}
+
+.check {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 44px;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+.box {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border: 1px solid rgba(243, 237, 227, 0.6);
+  position: relative;
+  transition: background-color var(--t-fast) var(--ease);
+}
+
+.check input:checked + .box {
+  background: var(--sand);
+  border-color: var(--sand);
+}
+
+.check input:checked + .box::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 11px;
+  border-right: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--ink);
+  transform: rotate(45deg);
+}
+
+.check input:focus-visible + .box {
+  outline: 2px solid var(--sand);
+  outline-offset: 3px;
+}
+
+.submitRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem 2rem;
+  flex-wrap: wrap;
+  padding-top: 0.5rem;
+}
+
+.submit {
+  min-height: 58px;
+  padding: 0 2.25rem;
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.submitNote {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--on-dark-soft);
+}
+
+/* ---- 제출 결과 ------------------------------------------------------------ */
+.result {
+  display: grid;
+  gap: 1.25rem;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  border: 1px solid var(--rule-on-dark);
+  justify-items: start;
+}
+
+.result:focus {
+  outline: none;
+}
+
+.result :global(.label) {
+  color: var(--sand);
+}
+
+.resultTitle {
+  font-size: clamp(2.25rem, 1.6rem + 2vw, 3.25rem);
+  line-height: 1;
+}
+
+.result strong {
+  color: var(--sand);
+  font-weight: 600;
+}
+
+.summary {
+  width: 100%;
+  border-top: 1px solid var(--rule-on-dark);
+}
+
+.summary div {
+  display: grid;
+  grid-template-columns: 7rem 1fr;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--rule-on-dark);
+  font-size: 0.875rem;
+}
+
+.summary dt {
+  color: var(--on-dark-soft);
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .formCol {
+    grid-column: 1;
+  }
+
+  .asidePhoto {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .group {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}

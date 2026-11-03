@@ -1,0 +1,167 @@
+.section {
+  background: var(--oat);
+  padding: var(--section-y) 0;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  margin-top: clamp(3rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.mapCol {
+  margin-left: calc(-1 * var(--gutter));
+}
+
+.map {
+  margin: 0;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+}
+
+.mapText {
+  font-family: var(--font-label);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  fill: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.mapPin {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  fill: var(--ink);
+}
+
+.pulse {
+  transform-origin: center;
+  animation: pulse 2.6s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.35;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.mapCaption {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 0 0 var(--gutter);
+  color: var(--text-faint);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 0.98;
+}
+
+.title em {
+  color: var(--olive);
+}
+
+.table {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.row dt {
+  padding-top: 0.3rem;
+  color: var(--terracotta-ink);
+}
+
+.row dd {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.9375rem;
+}
+
+.muted {
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+}
+
+.hour {
+  display: flex;
+  gap: 1rem;
+}
+
+.time {
+  font-family: var(--font-label);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.kakao {
+  align-self: flex-start;
+  min-height: 32px;
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.5rem;
+}
+
+.parking {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .info {
+    order: -1;
+  }
+
+  .mapCol {
+    margin: 0 calc(-1 * var(--gutter));
+  }
+
+  .mapCaption {
+    padding-right: var(--gutter);
+  }
+}
+
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: 4.75rem 1fr;
+  }
+
+  .actions :global(.btn) {
+    width: 100%;
+  }
+}

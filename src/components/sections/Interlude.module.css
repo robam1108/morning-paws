@@ -1,0 +1,56 @@
+.band {
+  position: relative;
+  height: clamp(520px, 86vh, 920px);
+  overflow: hidden;
+  background: var(--sand);
+}
+
+.photo {
+  position: absolute !important;
+  inset: 0;
+  height: 100%;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(41, 41, 35, 0.55) 0%, rgba(41, 41, 35, 0.15) 45%, rgba(41, 41, 35, 0) 70%);
+}
+
+.quote {
+  position: absolute;
+  left: max(var(--gutter), calc((100vw - var(--page-max)) / 2 + var(--gutter)));
+  bottom: clamp(2.5rem, 7vw, 6rem);
+  color: var(--oat);
+}
+
+.quote :global(.label) {
+  color: var(--sand);
+  margin-bottom: 1.25rem;
+}
+
+.quote blockquote :global(.display) {
+  font-size: clamp(2.75rem, 1.5rem + 4.5vw, 6rem);
+  line-height: 0.95;
+}
+
+.ko {
+  margin-top: 1.25rem;
+  font-size: 0.9375rem;
+  color: var(--oat);
+}
+
+@media (max-width: 767px) {
+  .band {
+    height: auto;
+    aspect-ratio: 4 / 5;
+  }
+
+  .scrim {
+    background: linear-gradient(0deg, rgba(41, 41, 35, 0.62) 0%, rgba(41, 41, 35, 0.12) 55%, rgba(41, 41, 35, 0) 75%);
+  }
+
+  .quote {
+    right: var(--gutter);
+  }
+}

@@ -1,0 +1,178 @@
+.section {
+  background: var(--white);
+  padding: var(--section-y) 0;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(3rem, 6vw, 5.5rem);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 0.98;
+}
+
+.title em {
+  color: var(--terracotta-ink);
+}
+
+.demo {
+  font-size: 0.8125rem;
+  color: var(--text-faint);
+}
+
+.demo :global(.label) {
+  margin-right: 0.5rem;
+  color: var(--terracotta-ink);
+}
+
+.list {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7.5rem);
+}
+
+.note {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  align-items: center;
+}
+
+.quoteBlock {
+  position: relative;
+  margin: 0;
+}
+
+.mark {
+  position: absolute;
+  top: -0.4em;
+  left: -0.05em;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 4rem + 6vw, 10rem);
+  line-height: 1;
+  color: var(--sand);
+  pointer-events: none;
+}
+
+.quote {
+  position: relative;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.quote p {
+  font-size: clamp(1.25rem, 1.05rem + 0.7vw, 1.65rem);
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: -0.03em;
+}
+
+.by {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--text-soft);
+}
+
+.dog {
+  font-size: 1.9rem;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.service {
+  margin-left: auto;
+  color: var(--olive);
+}
+
+/* 세 가지 배치 — 사진 위치와 크기를 매번 바꾼다 */
+.v0 .media {
+  grid-column: 1 / 4;
+}
+
+.v0 .quoteBlock {
+  grid-column: 5 / 11;
+}
+
+.v1 .media {
+  grid-column: 10 / 13;
+  grid-row: 1;
+  margin-top: -4rem;
+}
+
+.v1 .quoteBlock {
+  grid-column: 3 / 9;
+  grid-row: 1;
+}
+
+.v2 .media {
+  grid-column: 5 / 7;
+}
+
+.v2 .quoteBlock {
+  grid-column: 8 / 13;
+}
+
+@media (max-width: 1023px) {
+  .v0 .media {
+    grid-column: 1 / 5;
+  }
+
+  .v0 .quoteBlock {
+    grid-column: 6 / 13;
+  }
+
+  .v1 .media {
+    grid-column: 9 / 13;
+    margin-top: 0;
+  }
+
+  .v1 .quoteBlock {
+    grid-column: 1 / 8;
+  }
+
+  .v2 .media {
+    grid-column: 2 / 5;
+  }
+
+  .v2 .quoteBlock {
+    grid-column: 6 / 13;
+  }
+}
+
+@media (max-width: 767px) {
+  .note {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.75rem;
+  }
+
+  .media {
+    width: 58%;
+  }
+
+  .v1 .media {
+    align-self: flex-end;
+    order: -1;
+  }
+
+  .v2 .media {
+    width: 44%;
+    align-self: center;
+  }
+}

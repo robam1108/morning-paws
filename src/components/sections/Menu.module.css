@@ -1,0 +1,271 @@
+.section {
+  background: var(--olive);
+  color: var(--on-dark);
+  padding: var(--section-y) 0;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.head {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+  gap: 2rem 4rem;
+  align-items: end;
+  margin: clamp(3rem, 6vw, 5rem) 0 clamp(3.5rem, 7vw, 6rem);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 0.98;
+}
+
+.title em {
+  color: var(--sand);
+}
+
+.headNote p {
+  font-size: 0.9375rem;
+  color: var(--on-dark);
+  opacity: 0.9;
+}
+
+.demo {
+  margin-top: 1rem;
+  font-size: 0.8125rem !important;
+  color: var(--sand) !important;
+  opacity: 1 !important;
+}
+
+/* ---- 본문: 왼쪽 고정 사진 + 오른쪽 메뉴판 --------------------------------- */
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 7fr);
+  align-items: start;
+}
+
+.stickyCol {
+  grid-column: 1;
+  align-self: stretch;
+}
+
+.sticky {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+
+.stack {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+
+.stackItem {
+  position: absolute !important;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.03);
+  transition:
+    opacity var(--t-slow) var(--ease),
+    transform 1.2s var(--ease-out);
+}
+
+.stackActive {
+  opacity: 1;
+  transform: none;
+}
+
+.stackCaption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+.list {
+  grid-column: 3;
+  border-top: 1px solid var(--on-dark);
+}
+
+.item {
+  border-bottom: 1px solid var(--rule-on-dark);
+  outline: none;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 3rem auto minmax(2rem, 1fr) auto;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: clamp(1.4rem, 2.4vw, 2rem) 0 0.75rem;
+}
+
+.no {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  color: var(--sand);
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  font-weight: inherit;
+}
+
+.nameEn {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  line-height: 1.1;
+  transition: font-style var(--t-fast);
+}
+
+.itemActive .nameEn {
+  font-style: italic;
+}
+
+.nameKo {
+  margin-top: 0.3rem;
+  font-size: 0.8125rem;
+  color: var(--on-dark-soft);
+}
+
+.leader {
+  align-self: center;
+  height: 0;
+  margin-bottom: 1.4rem;
+  border-bottom: 1px dotted rgba(243, 237, 227, 0.5);
+}
+
+.from {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1.1rem + 0.8vw, 1.85rem);
+  font-weight: 400;
+  white-space: nowrap;
+  font-variant-numeric: lining-nums;
+}
+
+.from small {
+  font-family: var(--font-label);
+  font-size: 0.625rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+  margin-right: 0.35rem;
+}
+
+.star {
+  color: var(--sand);
+  font-size: 0.9em;
+  vertical-align: super;
+  margin-left: 1px;
+}
+
+.detail {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 0 0 clamp(1.5rem, 2.4vw, 2rem) 3.75rem;
+}
+
+.thumb {
+  display: none;
+}
+
+.desc {
+  max-width: 34rem;
+  font-size: 0.9375rem;
+  color: var(--on-dark);
+}
+
+.includes {
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--on-dark-soft);
+}
+
+.prices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 2rem;
+  margin-top: 1rem;
+  font-size: 0.8125rem;
+}
+
+.priceRow {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.priceRow dt {
+  font-family: var(--font-label);
+  letter-spacing: 0.04em;
+  color: var(--sand);
+}
+
+.footnote {
+  margin-top: 2.5rem;
+  margin-left: auto;
+  max-width: calc(7 / 12 * 100%);
+  font-size: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+/* ---- Tablet / Mobile: 고정 사진 대신 항목마다 작은 사진 ----------------------- */
+@media (max-width: 1023px) {
+  .head {
+    grid-template-columns: 1fr;
+  }
+
+  .body {
+    display: block;
+  }
+
+  .stickyCol {
+    display: none;
+  }
+
+  .detail {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+    gap: 1.25rem;
+    padding-left: 0;
+  }
+
+  .thumb {
+    display: block;
+  }
+
+  .footnote {
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .row {
+    grid-template-columns: 2.25rem 1fr auto;
+    gap: 0.5rem;
+  }
+
+  .leader {
+    display: none;
+  }
+
+  .nameEn {
+    font-size: 1.6rem;
+  }
+
+  .from {
+    font-size: 1.3rem;
+  }
+
+  .detail {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .prices {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,46 @@
+.folio {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-soft);
+}
+
+.light {
+  color: var(--on-dark-soft);
+}
+
+.no {
+  color: var(--terracotta-ink);
+}
+
+.light .no {
+  color: var(--sand);
+}
+
+.dash {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1px;
+  margin: 0 0.6rem;
+  vertical-align: middle;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.light .rule {
+  background: var(--rule-on-dark);
+}
+
+.page {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}

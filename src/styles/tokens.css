@@ -1,0 +1,63 @@
+/*
+ * MORNING PAWS — design tokens
+ * 컬러는 섹션 단위로 "면"을 바꾸는 데 쓰고, 요소마다 흩뿌리지 않는다.
+ * 비율 가이드: Oat 45 / White 15 / Olive 20 / Ink 12 / Terracotta·Sand 8
+ */
+:root {
+  /* Palette */
+  --oat: #f3ede3;
+  --oat-deep: #ebe3d6; /* oat 위의 얇은 면 구분용 */
+  --olive: #68745a;
+  --olive-deep: #4f5944; /* olive 위 hover, 작은 글씨 대비 보정 */
+  --terracotta: #b77d59;
+  --terracotta-ink: #9a6242; /* 흰/oat 위 작은 글씨용 — 4.5:1 확보 */
+  --sand: #d6bfa2;
+  --ink: #292923;
+  --white: #ffffff;
+
+  /* Text roles */
+  --text: var(--ink);
+  --text-soft: #5b5a50; /* oat 위 6.1:1 */
+  --text-faint: #6f6c60; /* 캡션 — oat 위 4.6:1 */
+  --on-dark: #f3ede3;
+  --on-dark-soft: #c9c3b6;
+
+  --rule: rgba(41, 41, 35, 0.18);
+  --rule-strong: rgba(41, 41, 35, 0.55);
+  --rule-on-dark: rgba(243, 237, 227, 0.22);
+
+  /* Type families */
+  --font-display: "Cormorant Garamond", "Pretendard Variable", Georgia, serif;
+  --font-label: "DM Sans", "Pretendard Variable", system-ui, sans-serif;
+  --font-body: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Malgun Gothic", sans-serif;
+
+  /* Type scale (desktop 기준, 모바일에서 자연스럽게 축소) */
+  --fs-hero: clamp(3.25rem, 1.1rem + 7.4vw, 6.9rem); /* 52 → 110px */
+  --fs-h2: clamp(2.5rem, 1.45rem + 3.4vw, 4rem); /* 40 → 64px */
+  --fs-h3: clamp(1.625rem, 1.3rem + 1vw, 2.125rem);
+  --fs-lead: clamp(1.0625rem, 1rem + 0.25vw, 1.125rem); /* 17 → 18px */
+  --fs-body: 0.9375rem; /* 15px — 한글 본문 */
+  --fs-small: 0.875rem;
+  --fs-caption: 0.6875rem; /* 11px */
+  --fs-nav: 0.8125rem; /* 13px */
+
+  /* Spacing */
+  --gutter: clamp(1rem, 3.6vw, 3.5rem);
+  --section-y: clamp(5rem, 9vw, 9.5rem);
+  --page-max: 1440px;
+  --header-h: 76px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --t-fast: 300ms;
+  --t-med: 500ms;
+  --t-slow: 700ms;
+}
+
+@media (max-width: 767px) {
+  :root {
+    --header-h: 60px;
+  }
+}

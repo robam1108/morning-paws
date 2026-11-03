@@ -1,0 +1,148 @@
+.footer {
+  background: var(--olive);
+  color: var(--on-dark);
+  padding: clamp(4rem, 8vw, 6.5rem) 0 2rem;
+  overflow: hidden;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) repeat(4, minmax(0, 1.4fr));
+  gap: 2.5rem clamp(1.5rem, 3vw, 3rem);
+}
+
+.cols :global(.label) {
+  color: var(--sand);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule-on-dark);
+}
+
+.tagline {
+  font-size: clamp(1.75rem, 1.3rem + 1.2vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.desc {
+  margin-top: 1rem;
+  max-width: 22rem;
+  font-size: 0.875rem;
+  color: var(--on-dark);
+  opacity: 0.85;
+}
+
+.list {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.8125rem;
+}
+
+.small {
+  font-size: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+.link {
+  transition: color var(--t-fast) var(--ease);
+}
+
+.link:hover {
+  color: var(--sand);
+}
+
+/* 페이지 폭을 가득 채우는 제호 — 인쇄물 뒤표지처럼 */
+.wordmark {
+  margin: clamp(3rem, 7vw, 6rem) 0 clamp(1.5rem, 3vw, 2.5rem);
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(3.5rem, 15.5vw, 15rem);
+  line-height: 0.8;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+  color: var(--oat);
+}
+
+.wordmark em {
+  font-style: italic;
+  color: var(--sand);
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem 2rem;
+  align-items: start;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--rule-on-dark);
+  font-size: 0.75rem;
+  color: var(--on-dark-soft);
+}
+
+.credits summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+}
+
+.credits summary::-webkit-details-marker {
+  display: none;
+}
+
+.credits summary::after {
+  content: " +";
+}
+
+.credits[open] summary::after {
+  content: " −";
+}
+
+.credits p {
+  margin-top: 0.75rem;
+}
+
+.credits ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.2rem 1.5rem;
+  margin-top: 0.6rem;
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.top {
+  white-space: nowrap;
+  color: var(--on-dark);
+}
+
+@media (max-width: 1023px) {
+  .cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about {
+    grid-column: 1 / -1;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    padding-bottom: calc(2rem + 64px); /* 모바일 예약 바 높이만큼 */
+  }
+
+  .wordmark {
+    font-size: 17.5vw;
+  }
+}

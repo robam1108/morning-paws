@@ -1,0 +1,256 @@
+.section {
+  background: var(--oat);
+  padding: var(--section-y) 0;
+}
+
+.wrap {
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* 이 섹션은 제목을 오른쪽으로 민다 — 앞 섹션들과 정렬 리듬을 바꾼다 */
+.head {
+  display: flex;
+  justify-content: flex-end;
+  margin: clamp(2.5rem, 5vw, 4.5rem) 0 clamp(2.5rem, 5vw, 4rem);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: 0.95;
+  text-align: right;
+}
+
+.title em {
+  color: var(--terracotta-ink);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5.5rem);
+  align-items: start;
+}
+
+.stage {
+  position: relative;
+}
+
+/* 전(작게, 아래로) · 후(크게, 위로) — 크기와 높이를 어긋나게 둔다 */
+.diptych {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+  align-items: start;
+}
+
+.diptych figure {
+  margin: 0;
+  animation: swap var(--t-slow) var(--ease-out) both;
+}
+
+.before {
+  margin-top: clamp(3rem, 8vw, 7rem) !important;
+}
+
+.after {
+  animation-delay: 120ms !important;
+}
+
+.diptych figcaption {
+  margin-top: 0.7rem;
+  color: var(--text-soft);
+}
+
+.after figcaption {
+  color: var(--olive);
+}
+
+@keyframes swap {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  padding-top: clamp(0rem, 3vw, 2.5rem);
+}
+
+.caseNo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  line-height: 0.8;
+}
+
+.caseNo :global(.display) {
+  font-size: clamp(5rem, 3rem + 6vw, 9.5rem);
+  color: var(--sand);
+}
+
+.caseOf {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.4rem;
+  color: var(--text-faint);
+}
+
+.caseText {
+  margin-top: 1.5rem;
+  animation: swap var(--t-slow) var(--ease-out);
+}
+
+.caseText :global(.label) {
+  color: var(--terracotta-ink);
+}
+
+.style {
+  margin-top: 0.35rem;
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+}
+
+.note {
+  margin-top: 1rem;
+  max-width: 26rem;
+  color: var(--text-soft);
+}
+
+.tabs {
+  margin-top: clamp(2rem, 4vw, 3.25rem);
+  border-top: 1px solid var(--rule-strong);
+}
+
+.tab {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr auto;
+  align-items: baseline;
+  gap: 0.75rem;
+  width: 100%;
+  min-height: 52px;
+  padding: 0.9rem 0;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  color: var(--text-faint);
+  transition: color var(--t-fast) var(--ease);
+}
+
+.tab:hover,
+.tab[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.tabNo {
+  font-family: var(--font-label);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.tab[aria-selected="true"] .tabNo {
+  color: var(--olive);
+}
+
+.tabName {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  line-height: 1.1;
+}
+
+.tab[aria-selected="true"] .tabName {
+  font-style: italic;
+}
+
+.tabStyle {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+.disclaimer {
+  margin-top: 2rem;
+  padding: 1rem 0 0;
+  border-top: 1px dashed var(--rule-strong);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--text-faint);
+}
+
+.disclaimer :global(.label) {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 1023px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .side {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 2.5rem;
+  }
+
+  .caseNo {
+    grid-row: 1 / 3;
+  }
+
+  .tabs,
+  .disclaimer {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 767px) {
+  .head {
+    justify-content: flex-start;
+  }
+
+  .title {
+    text-align: left;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .stage {
+    margin: 0 calc(-1 * var(--gutter));
+  }
+
+  .before figcaption {
+    padding-left: var(--gutter);
+  }
+
+  .side {
+    display: flex;
+    padding-top: 0;
+  }
+
+  .caseNo {
+    display: none;
+  }
+
+  .caseText {
+    margin-top: 0;
+  }
+
+  .tab {
+    grid-template-columns: 4.5rem 1fr;
+  }
+
+  .tabStyle {
+    display: none;
+  }
+}
